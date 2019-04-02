@@ -3,7 +3,6 @@
 
 # Table of Contents
 
-   * [IRIDA Example Pipeline Plugin](#irida-example-pipeline-plugin)
    * [Building/Packaging](#buildingpackaging)
       * [Installing IRIDA to local Maven repository](#installing-irida-to-local-maven-repository)
       * [Building the plugin](#building-the-plugin)
