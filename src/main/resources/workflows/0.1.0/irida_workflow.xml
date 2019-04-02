@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iridaWorkflow>
+  <id>a82ddbeb-6448-4ae7-a4f4-d54ed68edbd3</id>
+  <name>Snippy</name>
+  <version>0.1.0</version>
+  <analysisType>PHYLOGENOMICS_SNIPPY</analysisType>
+  <inputs>
+    <sequenceReadsPaired>sequence_reads_paired</sequenceReadsPaired>
+    <reference>reference</reference>
+    <requiresSingleSample>false</requiresSingleSample>
+  </inputs>
+  <parameters>
+  </parameters>
+  <outputs>
+    <output name="Tree" fileName="tree.nhx"/>
+  </outputs>
+  <toolRepositories>
+    <repository>
+      <name>snippy</name>
+      <owner>iuc</owner>
+      <url>https://toolshed.g2.bx.psu.edu/</url>
+      <revision>776ebd1239da</revision>
+    </repository>
+    <repository>
+      <name>iqtree</name>
+      <owner>iuc</owner>
+      <url>https://toolshed.g2.bx.psu.edu/</url>
+      <revision>d1c340a5664b</revision>
+    </repository>
+  </toolRepositories>
+</iridaWorkflow>
