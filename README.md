@@ -1,9 +1,8 @@
-# CPO Pipeline IRIDA Plugin
+# Snippy IRIDA Plugin
 
 
 # Table of Contents
 
-   * [IRIDA Example Pipeline Plugin](#irida-example-pipeline-plugin)
    * [Building/Packaging](#buildingpackaging)
       * [Installing IRIDA to local Maven repository](#installing-irida-to-local-maven-repository)
       * [Building the plugin](#building-the-plugin)
@@ -48,12 +47,12 @@ mvn clean install -DskipTests
 Once you've installed IRIDA as a dependency, you can proceed to building this plugin. Please run the following commands:
 
 ```bash
-cd cpo-pipeline-irida
+cd irida-plugin-snippy
 
 mvn clean package
 ```
 
-Once complete, you should end up with a file `target/cpo-pipeline-irida-1.0-SNAPSHOT.jar` which can be installed as a plugin to IRIDA.
+Once complete, you should end up with a file `target/snippy-1.0-SNAPSHOT.jar` which can be installed as a plugin to IRIDA.
 
 If you have previously [setup IRIDA][irida-setup] before you may copy this JAR file to `/etc/irida/plugins` and restart IRIDA.  The plugin should now show up in the **Analyses > Pipelines** section of IRIDA.
 
