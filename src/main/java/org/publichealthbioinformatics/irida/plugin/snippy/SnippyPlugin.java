@@ -1,4 +1,4 @@
-package ca.corefacility.bioinformatics.irida.plugins;
+package org.publichealthbioinformatics.irida.plugin.snippy;
 
 import java.awt.Color;
 import java.util.Optional;
@@ -8,6 +8,8 @@ import org.pf4j.Extension;
 import org.pf4j.Plugin;
 import org.pf4j.PluginWrapper;
 
+import ca.corefacility.bioinformatics.irida.plugins.IridaPlugin;
+import ca.corefacility.bioinformatics.irida.plugins.IridaPluginException;
 import ca.corefacility.bioinformatics.irida.model.workflow.analysis.type.AnalysisType;
 import ca.corefacility.bioinformatics.irida.pipeline.results.updater.AnalysisSampleUpdater;
 import ca.corefacility.bioinformatics.irida.service.sample.MetadataTemplateService;
