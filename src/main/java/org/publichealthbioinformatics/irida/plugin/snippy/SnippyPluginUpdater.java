@@ -150,6 +150,6 @@ public class SnippyPluginUpdater implements AnalysisSampleUpdater {
 	 */
 	@Override
 	public AnalysisType getAnalysisType() {
-		return SnippyPlugin.PHYLOGENOMICS_SNIPPY;
+		return SnippyPlugin.SNIPPY_SINGLE;
 	}
 }

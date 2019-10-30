@@ -10,6 +10,7 @@ import org.pf4j.PluginWrapper;
 
 import ca.corefacility.bioinformatics.irida.plugins.IridaPlugin;
 import ca.corefacility.bioinformatics.irida.plugins.IridaPluginException;
+import ca.corefacility.bioinformatics.irida.model.sample.Sample;
 import ca.corefacility.bioinformatics.irida.model.workflow.analysis.type.AnalysisType;
 import ca.corefacility.bioinformatics.irida.pipeline.results.updater.AnalysisSampleUpdater;
 import ca.corefacility.bioinformatics.irida.service.sample.MetadataTemplateService;
@@ -27,7 +28,7 @@ public class SnippyPlugin extends Plugin {
 	 * is used to store the type of the analysis pipeline (which should be unique
 	 * for each pipeline).
 	 */
-	public static final AnalysisType PHYLOGENOMICS_SNIPPY = new AnalysisType("PHYLOGENOMICS_SNIPPY");
+	public static final AnalysisType SNIPPY_SINGLE = new AnalysisType("SNIPPY_SINGLE");
 
 	public SnippyPlugin(PluginWrapper wrapper) {
 		super(wrapper);
@@ -61,7 +62,7 @@ public class SnippyPlugin extends Plugin {
 		 */
 		@Override
 		public AnalysisType getAnalysisType() {
-			return PHYLOGENOMICS_SNIPPY;
+			return SNIPPY_SINGLE;
 		}
 
 		/**
