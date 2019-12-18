@@ -1,9 +1,9 @@
 {
-    "uuid": "a22b6e82-00e1-4040-ab42-3a6607559da0",
+    "uuid": "fcd010e5-e555-4f1f-9ea3-a3d5495bf850",
     "tags": [],
     "format-version": "0.1",
     "name": "snippy-single",
-    "version": 5,
+    "version": 2,
     "steps": {
         "0": {
             "tool_id": null,
@@ -12,21 +12,21 @@
             "workflow_outputs": [
                 {
                     "output_name": "output",
-                    "uuid": "f4cc88ed-4252-46ea-8b52-c1827ab43238",
+                    "uuid": "89268942-77bc-4890-ac6b-dd4dd45af8cf",
                     "label": null
                 }
             ],
             "input_connections": {},
-            "tool_state": "{}",
+            "tool_state": "{\"name\": \"reference\"}",
             "id": 0,
-            "uuid": "d67b3545-ec37-4746-924b-887dd51ff813",
+            "uuid": "46bbde17-d05e-4fdb-a7af-e721b44639f4",
             "errors": null,
             "name": "Input dataset",
             "label": "reference",
             "inputs": [],
             "position": {
-                "top": 214,
-                "left": 222.5
+                "top": 206.5,
+                "left": 201
             },
             "annotation": "",
             "content_id": null,
@@ -39,29 +39,29 @@
             "workflow_outputs": [
                 {
                     "output_name": "output",
-                    "uuid": "c06908f3-d46a-4300-969d-75f1dfc07847",
+                    "uuid": "ecf1ca60-e5d1-4351-861c-6690a9fcd7d7",
                     "label": null
                 }
             ],
             "input_connections": {},
-            "tool_state": "{\"collection_type\": \"list:paired\"}",
+            "tool_state": "{\"collection_type\": \"list:paired\", \"name\": \"sequence_reads_paired\"}",
             "id": 1,
-            "uuid": "0f7fe6c8-ef61-4a76-ba38-d09c2822d6ba",
+            "uuid": "dc08a322-e095-4660-b5fe-fc4daaa14873",
             "errors": null,
             "name": "Input dataset collection",
             "label": "sequence_reads_paired",
             "inputs": [],
             "position": {
-                "top": 341,
-                "left": 189
+                "top": 338.5,
+                "left": 187.5
             },
             "annotation": "",
             "content_id": null,
             "type": "data_collection_input"
         },
         "2": {
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/4.4.3+galaxy0",
-            "tool_version": "4.4.3+galaxy0",
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/4.4.5+galaxy1",
+            "tool_version": "4.4.5+galaxy1",
             "outputs": [
                 {
                     "type": "vcf",
@@ -85,10 +85,6 @@
                 },
                 {
                     "type": "fasta",
-                    "name": "snpalign"
-                },
-                {
-                    "type": "fasta",
                     "name": "snpconsensus"
                 },
                 {
@@ -103,42 +99,37 @@
             "workflow_outputs": [
                 {
                     "output_name": "snplog",
-                    "uuid": "38978659-9ad8-44e9-808e-39de930372e7",
+                    "uuid": "0e36b22b-09fd-471f-b0bd-d7991587108a",
                     "label": null
                 },
                 {
                     "output_name": "snptab",
-                    "uuid": "6455c149-50f8-44c5-ab88-83d64f698466",
+                    "uuid": "cf51252e-25ae-4cf1-8833-6aa70b6ad78e",
                     "label": null
                 },
                 {
                     "output_name": "snpvcf",
-                    "uuid": "545dc301-c564-4d79-b5b8-7e13892fcbd6",
+                    "uuid": "57005797-1a56-4ff4-b1ee-0850a5adfb97",
                     "label": null
                 },
                 {
                     "output_name": "snpgff",
-                    "uuid": "100d68cc-59e0-49b5-a086-d343ca83953f",
+                    "uuid": "2280d38c-7f22-4bc7-8fa5-1cdfc742b395",
                     "label": null
                 },
                 {
                     "output_name": "snpconsensus",
-                    "uuid": "14dec978-dba4-4731-8776-ce6083deff9b",
+                    "uuid": "f31d573d-d3d8-49a2-b029-b9c83b611ff9",
                     "label": null
                 },
                 {
                     "output_name": "snpsbam",
-                    "uuid": "154f3d3d-40df-448b-bb92-82b1ee0c8c07",
-                    "label": null
-                },
-                {
-                    "output_name": "snpalign",
-                    "uuid": "26cc3da0-488b-425a-9277-4487a62d1e4b",
+                    "uuid": "33f1033b-9608-4c8b-9a78-48fcbed838c3",
                     "label": null
                 },
                 {
                     "output_name": "snpsum",
-                    "uuid": "d46d7fc9-410c-40ae-a5eb-bba0dbc52339",
+                    "uuid": "519fe31c-888a-4f24-a6c3-138e7f8d859a",
                     "label": null
                 }
             ],
@@ -152,23 +143,18 @@
                     "id": 1
                 }
             },
-            "tool_state": "{\"adv\": \"{\\\"bwaopt\\\": \\\"\\\", \\\"mapqual\\\": \\\"60\\\", \\\"mincov\\\": \\\"10\\\", \\\"minfrac\\\": \\\"0.9\\\", \\\"minqual\\\": \\\"100.0\\\", \\\"rename_cons\\\": \\\"false\\\", \\\"rgid\\\": \\\"\\\"}\", \"__page__\": null, \"outputs\": \"[\\\"outvcf\\\", \\\"outgff\\\", \\\"outtab\\\", \\\"outsum\\\", \\\"outlog\\\", \\\"outaln\\\", \\\"outcon\\\", \\\"outbam\\\"]\", \"__rerun_remap_job_id__\": null, \"fastq_input\": \"{\\\"__current_case__\\\": 2, \\\"fastq_input\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"fastq_input_selector\\\": \\\"paired_collection\\\"}\", \"reference_source\": \"{\\\"__current_case__\\\": 1, \\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\"}\"}",
+            "tool_state": "{\"adv\": \"{\\\"bwaopt\\\": \\\"\\\", \\\"mapqual\\\": \\\"60\\\", \\\"mincov\\\": \\\"10\\\", \\\"minfrac\\\": \\\"0.9\\\", \\\"minqual\\\": \\\"100.0\\\", \\\"rename_cons\\\": \\\"false\\\", \\\"rgid\\\": \\\"\\\"}\", \"__page__\": null, \"outputs\": \"[\\\"outvcf\\\", \\\"outgff\\\", \\\"outtab\\\", \\\"outsum\\\", \\\"outlog\\\", \\\"outcon\\\", \\\"outbam\\\", \\\"outzip\\\"]\", \"__rerun_remap_job_id__\": null, \"fastq_input\": \"{\\\"__current_case__\\\": 2, \\\"fastq_input\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"fastq_input_selector\\\": \\\"paired_collection\\\"}\", \"reference_source\": \"{\\\"__current_case__\\\": 1, \\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\"}\"}",
             "id": 2,
             "tool_shed_repository": {
                 "owner": "iuc",
-                "changeset_revision": "0aa87d97847f",
+                "changeset_revision": "32f2211eeec3",
                 "name": "snippy",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "uuid": "b6a179af-2f26-46c2-988b-c4f7fa7719ee",
+            "uuid": "91d4a374-80ab-4a1a-af42-6a6092c466f2",
             "errors": null,
             "name": "snippy",
             "post_job_actions": {
-                "DeleteIntermediatesActionsnpvcf": {
-                    "output_name": "snpvcf",
-                    "action_type": "DeleteIntermediatesAction",
-                    "action_arguments": {}
-                },
                 "RenameDatasetActionsnpgff": {
                     "output_name": "snpgff",
                     "action_type": "RenameDatasetAction",
@@ -209,13 +195,6 @@
                         "newname": "consensus.fasta"
                     }
                 },
-                "RenameDatasetActionsnpalign": {
-                    "output_name": "snpalign",
-                    "action_type": "RenameDatasetAction",
-                    "action_arguments": {
-                        "newname": "aligned.fasta"
-                    }
-                },
                 "RenameDatasetActionsnpsum": {
                     "output_name": "snpsum",
                     "action_type": "RenameDatasetAction",
@@ -243,11 +222,11 @@
                 }
             ],
             "position": {
-                "top": 241.5,
-                "left": 506.5
+                "top": 269.5,
+                "left": 492
             },
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/4.4.3+galaxy0",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/4.4.5+galaxy1",
             "type": "tool"
         }
     },

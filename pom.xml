@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.publichealthbioinformatics</groupId>
-    <artifactId>irida-plugin-snippy</artifactId>
+    <artifactId>irida-plugin-snippy-single</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
     <!-- Please fill out these properties with information about your particular plugin -->
     <properties>
         <!-- Information used to define properties about a plugin. Please see the PF4J docs for more details https://pf4j.org/doc/getting-started.html -->
         <plugin.id>snippy-single</plugin.id>
-        <plugin.class>org.publichealthbioinformatics.irida.plugin.snippy.SnippyPlugin</plugin.class>
+        <plugin.class>org.publichealthbioinformatics.irida.plugin.snippysingle.SnippySingleSinglePlugin</plugin.class>
         <plugin.version>0.1.0-SNAPSHOT</plugin.version>
         <plugin.provider>Dan Fornika</plugin.provider>
         <plugin.dependencies></plugin.dependencies>
@@ -23,9 +23,14 @@
 
         <!-- Version of the pf4j dependency -->
         <pf4j.version>2.4.0</pf4j.version>
+        <junit.version>4.11</junit.version>
+        <mockito.version>1.10.19</mockito.version>
+        <hamcrest.version>1.3</hamcrest.version>
 
         <!-- Version of Java to target for this plugin -->
         <java.version>1.8</java.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <!-- Dependencies used to build this plugin package -->
@@ -43,7 +48,41 @@
             <version>${pf4j.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>hamcrest-core</artifactId>
+                    <groupId>org.hamcrest</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>${hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
+
 
     <!-- You should normally not have to modify any of the below information -->
     <build>
@@ -62,6 +101,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.1</version>
 
                 <configuration>
                     <archive>

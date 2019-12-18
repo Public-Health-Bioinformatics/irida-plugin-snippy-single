@@ -1,4 +1,4 @@
-package org.publichealthbioinformatics.irida.plugin.snippy;
+package org.publichealthbioinformatics.irida.plugin.snippysingle;
 
 import java.awt.Color;
 import java.util.Optional;
@@ -21,7 +21,7 @@ import ca.corefacility.bioinformatics.irida.service.workflow.IridaWorkflowsServi
  * An example {@link IridaPlugin} implementation which will extract some
  * information from the sequencing reads.
  */
-public class SnippyPlugin extends Plugin {
+public class SnippySingleSinglePlugin extends Plugin {
 
 	/**
 	 * The {@link AnalysisType} used by this plugin. This wraps around a string and
@@ -30,7 +30,7 @@ public class SnippyPlugin extends Plugin {
 	 */
 	public static final AnalysisType SNIPPY_SINGLE = new AnalysisType("SNIPPY_SINGLE");
 
-	public SnippyPlugin(PluginWrapper wrapper) {
+	public SnippySingleSinglePlugin(PluginWrapper wrapper) {
 		super(wrapper);
 	}
 
@@ -95,7 +95,7 @@ public class SnippyPlugin extends Plugin {
 		 */
 		@Override
 		public Optional<Color> getBackgroundColor() {
-			return Optional.of(Color.decode("#bf0505"));
+			return Optional.of(Color.decode("#a0d7a3"));
 		}
 
 		/**
@@ -126,7 +126,7 @@ public class SnippyPlugin extends Plugin {
 		@Override
 		public Optional<AnalysisSampleUpdater> getUpdater(MetadataTemplateService metadataTemplateService,
 				SampleService sampleService, IridaWorkflowsService iridaWorkflowsService) throws IridaPluginException {
-			return Optional.of(new SnippyPluginUpdater(metadataTemplateService, sampleService, iridaWorkflowsService));
+			return Optional.of(new SnippySinglePluginUpdater(metadataTemplateService, sampleService, iridaWorkflowsService));
 		}
 	}
 }

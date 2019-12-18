@@ -10,13 +10,30 @@
     <requiresSingleSample>true</requiresSingleSample>
   </inputs>
   <parameters>
+    <parameter name="snippy-2-adv.minfrac" defaultValue="0.9">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/4.4.5+galaxy1" parameterName="adv.minfrac"/>
+    </parameter>
+    <parameter name="snippy-2-adv.mincov" defaultValue="10">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/4.4.5+galaxy1" parameterName="adv.mincov"/>
+    </parameter>
+    <parameter name="snippy-2-adv.rgid" defaultValue="">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/4.4.5+galaxy1" parameterName="adv.rgid"/>
+    </parameter>
+    <parameter name="snippy-2-adv.rename_cons" defaultValue="true">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/4.4.5+galaxy1" parameterName="adv.rename_cons"/>
+    </parameter>
+    <parameter name="snippy-2-adv.mapqual" defaultValue="60">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/4.4.5+galaxy1" parameterName="adv.mapqual"/>
+    </parameter>
+    <parameter name="snippy-2-adv.minqual" defaultValue="100.0">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/4.4.5+galaxy1" parameterName="adv.minqual"/>
+    </parameter>
   </parameters>
   <outputs>
+    <output name="snps_summary" fileName="snps_summary.tsv" />
+    <output name="snps_table" fileName="snps_table.tsv" />
     <output name="snps_vcf" fileName="snps.vcf" />
     <output name="snps_gff" fileName="snps.gff" />
-    <output name="snps_table" fileName="snps_table.tsv" />
-    <output name="snps_table" fileName="snps_summary.tsv" />
-    <output name="aligned_fasta" fileName="aligned.fasta" />
     <output name="consensus_fasta" fileName="consensus.fasta" />
     <output name="mapped_reads" fileName="mapped_reads.bam" />
     <output name="snippy_log" fileName="snippy_log.txt" />
@@ -25,8 +42,8 @@
     <repository>
       <name>snippy</name>
       <owner>iuc</owner>
-      <url>https://toolshed.g2.bx.psu.edu/</url>
-      <revision>0aa87d97847f</revision>
+      <url>https://toolshed.g2.bx.psu.edu</url>
+      <revision>32f2211eeec3</revision>
     </repository>
   </toolRepositories>
 </iridaWorkflow>
