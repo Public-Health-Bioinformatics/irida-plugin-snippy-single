@@ -34,6 +34,11 @@ managers within your Galaxy instance. These can be found at:
 |------------------------------------|-----------------|------------------------------- |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | snippy                             | `4.4.5`         | `iuc`                          | 8 (2019-12-01)    | [snippy-8:32f2211eeec3](https://toolshed.g2.bx.psu.edu/view/iuc/snippy/32f2211eeec3)                                                            |
 
+**NOTE**: There is currently an unresolved issue in snippy involving a problem resolving the correct version number for samtools. This issue arises when snippy is installed from bioconda, as is normally the case when installing to galaxy. The issue can be resolved by:
+
+1. Activating the conda environment where snippy was installed (this will likely be a 'mulled' environment, since the [snippy galaxy tool wrapper](https://github.com/galaxyproject/tools-iuc/tree/master/tools/snippy) references [multiple tool dependencies](https://github.com/galaxyproject/tools-iuc/blob/22ed9cb1e65cff5239df7ad4c76eaf0e981cf279/tools/snippy/macros.xml#L3-L7).
+2. Running `conda install --override-channels -c conda-forge -c bioconda -c defaults samtools=1.9` to downgrade samtools.
+
 ## Installing to IRIDA
 
 Please download the provided `irida-plugin-snippy-single-[version].jar` from the [releases][] page and copy to your 
