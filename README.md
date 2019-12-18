@@ -1,29 +1,74 @@
-# Snippy IRIDA Plugin
+[![Build Status](https://travis-ci.org/public-health-bioinformatics/irida-plugin-snippy-single.svg?branch=master)](https://travis-ci.org/public-health-bioinformatics/irida-plugin-snippy-single)
+[![codecov](https://codecov.io/gh/public-health-bioinformatics/irida-plugin-snippy-single/branch/master/graph/badge.svg)](https://codecov.io/gh/public-health-bioinformatics/irida-plugin-snippy-single)
+[![Current Release Version](https://img.shields.io/github/release/public-health-bioinformatics/irida-plugin-snippy-single.svg)](https://github.com/public-health-bioinformatics/irida-plugin-snippy-single/releases)
 
+# IRIDA Snippy Single-Isolate Pipeline Plugin
+
+![galaxy-workflow-diagram.png][]
+
+This project contains a pipeline implemented as a plugin for the [IRIDA][] bioinformatics analysis system. 
+This can be used to Call SNPs and indels between a reference genome and your sequence data from a bacterial isolate.
 
 # Table of Contents
 
-   * [Building/Packaging](#buildingpackaging)
+   * [IRIDA Snippy-Single Pipeline Plugin](#irida-snippy-single-pipeline-plugin)
+   * [Installation](#installation)
+      * [Installing Galaxy Dependencies](#installing-galaxy-dependencies)
+      * [Installing to IRIDA](#installing-to-irida)
+   * [Usage](#usage)
+      * [Analysis Results](#analysis-results)
+      * [Metadata Table](#metadata-table)
+   * [Building](#building)
       * [Installing IRIDA to local Maven repository](#installing-irida-to-local-maven-repository)
       * [Building the plugin](#building-the-plugin)
    * [Dependencies](#dependencies)
-   * [Using as a template for developing a plugin](#using-as-a-template-for-developing-a-plugin)
-      * [1. Place necessary pipeline files in <a href="src/main/resources/workflows">src/main/resources/workflows</a>](#1-place-necessary-pipeline-files-in-srcmainresourcesworkflows)
-         * [1.1. Creating pipeline files](#11-creating-pipeline-files)
-         * [1.2. Updating pipeline files](#12-updating-pipeline-files)
-            * [1.2.1. Modifying irida_workflow.xml](#121-modifying-irida_workflowxml)
-            * [1.2.2. Modifying messages_en.properties](#122-modifying-messages_enproperties)
-      * [2. Update <a href="src/main/java/ca/corefacility/bioinformatics/irida/plugins/ExamplePlugin.java">src/main/java/ca/corefacility/bioinformatics/irida/plugins/ExamplePlugin.java</a>](#2-update-srcmainjavacacorefacilitybioinformaticsiridapluginsexamplepluginjava)
-      * [3. (Optional) Implement an <a href="src/main/java/ca/corefacility/bioinformatics/irida/plugins/ExamplePluginUpdater.java">Updater</a> class](#3-optional-implement-an-updater-class)
-      * [4. Update the <a href="pom.xml">pom.xml</a> file](#4-update-the-pomxml-file)
-         * [4.1. Update the Maven version/info](#41-update-the-maven-versioninfo)
-         * [4.2. Update the properties section/plugin info](#42-update-the-properties-sectionplugin-info)
-      * [5. Build and Test](#5-build-and-test)
-      * [6. Distribute](#6-distribute)
 
-# Building/Packaging
+# Installation
 
-Building and packaging this code is accomplished using [Apache Maven][maven]. However, you will first need to install [IRIDA][] to your local Maven repository.
+## Installing Galaxy Dependencies
+
+In order to use this pipeline, you will also have to install the following Galaxy tools and data 
+managers within your Galaxy instance. These can be found at:
+
+| Name                               | Version         | Owner                          | Metadata Revision | Galaxy Toolshed Link                                                                                                                              |
+|------------------------------------|-----------------|------------------------------- |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| snippy                             | `4.4.5`         | `iuc`                          | 8 (2019-12-01)    | [snippy-8:32f2211eeec3](https://toolshed.g2.bx.psu.edu/view/iuc/snippy/32f2211eeec3)                                                            |
+
+## Installing to IRIDA
+
+Please download the provided `irida-plugin-snippy-single-[version].jar` from the [releases][] page and copy to your 
+`/etc/irida/plugins` directory.  Now you may start IRIDA and you should see the pipeline appear in your list of pipelines.
+
+*Note:* This plugin requires you to be running IRIDA version >= `19.01`. Please see the [IRIDA][] documentation for more details.
+
+# Usage
+
+The plugin should now show up in the **Analyses > Pipelines** section of IRIDA.
+
+![plugin-pipeline.png][]
+![pipeline-parameters.png][]
+
+## Analysis Results
+
+You should be able to run a pipeline with this plugin and get analysis results. The results include a summary of
+the variant calling results, `.vcf` and `.gff` files containing variants and a consensus fasta file. 
+A Snippy `.log` file and a `.bam` alignment file are also provided.
+
+![plugin-results-1.png][]
+
+## Metadata Table
+
+This pipeline plugin does not currently write any data to the IRIDA Metadata Table. Future versions of this pipeline
+plugin will do so.
+
+| Field Name                                 | Description                                               |
+|--------------------------------------------|-----------------------------------------------------------|
+|                                            |                                                           |
+
+
+# Building
+
+Building and packaging this code is accomplished using [Apache Maven][maven]. However, you will first need to install [IRIDA][] to your local Maven repository. The version of IRIDA you install will have to correspond to the version found in the `irida.version.compiletime` property in the [pom.xml][] file of this project. Right now, this is IRIDA version `19.01.3`.
 
 ## Installing IRIDA to local Maven repository
 
@@ -36,7 +81,13 @@ git clone https://github.com/phac-nml/irida.git
 cd irida
 ```
 
-2. Install IRIDA to local repository
+2. Checkout appropriate version of IRIDA
+
+```bash
+git checkout 19.01.3
+```
+
+3. Install IRIDA to local repository
 
 ```bash
 mvn clean install -DskipTests
@@ -47,24 +98,12 @@ mvn clean install -DskipTests
 Once you've installed IRIDA as a dependency, you can proceed to building this plugin. Please run the following commands:
 
 ```bash
-cd irida-plugin-snippy
+cd irida-plugin-tetyper
 
 mvn clean package
 ```
 
-Once complete, you should end up with a file `target/snippy-1.0-SNAPSHOT.jar` which can be installed as a plugin to IRIDA.
-
-If you have previously [setup IRIDA][irida-setup] before you may copy this JAR file to `/etc/irida/plugins` and restart IRIDA.  The plugin should now show up in the **Analyses > Pipelines** section of IRIDA.
-
-![example-plugin-pipeline.png][]  
-
-You should be able to run a pipeline with this plugin and get analysis results.
-
-![example-plugin-results.png][]
-
-And, you should be able to save and view these results in the IRIDA metadata table.
-
-![example-plugin-metadata.png][]
+Once complete, you should end up with a file `target/irida-plugin-tetyper-0.1.0-SNAPSHOT.jar` which can be installed as a plugin to IRIDA.
 
 # Dependencies
 
@@ -72,11 +111,6 @@ The following dependencies are required in order to make use of this plugin.
 
 * [IRIDA][] >= 0.23.0
 * [Java][] >= 1.8 and [Maven][maven] (for building)
-
-
-## 6. Distribute
-
-Once you've successfully built your plugin, you can distribute the JAR file to other IRIDA users to install in their instances.
 
 [maven]: https://maven.apache.org/
 [IRIDA]: http://irida.ca/
@@ -96,8 +130,11 @@ Once you've successfully built your plugin, you can distribute the JAR file to o
 [messages]: src/main/resources/workflows/0.1.0/messages_en.properties
 [maven-min-pom]: https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#Minimal_POM
 [pf4j-start]: https://pf4j.org/doc/getting-started.html
-[example-plugin-results.png]: doc/images/example-plugin-results.png
-[example-plugin-pipeline.png]: doc/images/example-plugin-pipeline.png
-[example-plugin-metadata.png]: doc/images/example-plugin-metadata.png
+[plugin-results-1.png]: doc/images/plugin-results-1.png
+[plugin-results-2.png]: doc/images/plugin-results-2.png
+[plugin-results-3.png]: doc/images/plugin-results-3.png
+[plugin-pipeline.png]: doc/images/plugin-pipeline.png
+[plugin-metadata.png]: doc/images/plugin-metadata.png
 [pipeline-parameters.png]: doc/images/pipeline-parameters.png
 [example-plugin-save-results.png]: doc/images/example-plugin-save-results.png
+[galaxy-workflow-diagram.png]: doc/images/galaxy-workflow-diagram.png
